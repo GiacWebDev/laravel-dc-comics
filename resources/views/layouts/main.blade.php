@@ -14,7 +14,7 @@
 
 <body>
     @include('partials.header')
-    <main class="container my-5">
+    <main class="container my-5 d-flex">
         @yield('content')
     </main>
 </body>
