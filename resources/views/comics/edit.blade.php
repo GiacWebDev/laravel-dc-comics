@@ -9,7 +9,7 @@
                 <form action="{{ route('comics.update', $comic) }}" method="POST">
                     @csrf
 
-                    {{-- metodo put detto a Laravel --}}
+                    {{-- metodo put detto a Laravel e aggiungo il value per recuperare i dati del form --}}
                     @method('PUT')
                     <div class="mb-3">
                         <label for="thumb" class="form-label">Immagine</label>
