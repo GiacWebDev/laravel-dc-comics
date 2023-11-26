@@ -14,6 +14,13 @@
                 <p>{{ $comic->description }}</p>
                 <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning"><i class="fa-solid fa-pen"
                         style="color: #ffffff;"></i></a>
+                <form class="d-inline-block" action="{{ route('comics.destroy', $comic) }}" method="POST"
+                    onsubmit="return confirm('Sei sicuro di voler eliminare {{ $comic->title }}')">
+                    @csrf
+                    @method('DELETE')
+                    <button href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"
+                            style="color: #ffffff;"></i></button>
+                </form>
             </div>
         </div>
     </div>

@@ -4,6 +4,13 @@
     <div class="container">
 
         <h1>Lista Comics</h1>
+
+        @if (session('deleted'))
+            <div class="alert alert-success" role="alert">
+                {{ session('deleted') }}
+            </div>
+        @endif
+
         <div class="row">
             @foreach ($products as $comic)
                 <div class="col-md-3 mb-4">
@@ -22,7 +29,8 @@
                             <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning"><i class="fa-solid fa-pen"
                                     style="color: #ffffff;"></i></a>
 
-                            <form class="d-inline-block" action="{{ route('comics.destroy', $comic) }}" method="POST">
+                            <form class="d-inline-block" action="{{ route('comics.destroy', $comic) }}" method="POST"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare {{ $comic->title }}?')">
                                 @csrf
                                 @method('DELETE')
                                 <button href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"
