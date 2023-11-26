@@ -14,7 +14,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $products = Comic::All();
+        $products = Comic::orderBy('id', 'desc')->paginate(8);;
         return view('comics.index', compact('products'));
     }
 
@@ -39,13 +39,15 @@ class ComicController extends Controller
         $form_data = $request->all();
 
         $new_comic = new Comic();
-        $new_comic->thumb = $form_data['thumb'];
-        $new_comic->title = $form_data['title'];
-        $new_comic->series = $form_data['series'];
-        $new_comic->type = $form_data['type'];
-        $new_comic->sale_date = $form_data['sale_date'];
-        $new_comic->price = $form_data['price'];
-        $new_comic->description = $form_data['description'];
+        // $new_comic->thumb = $form_data['thumb'];
+        // $new_comic->title = $form_data['title'];
+        // $new_comic->series = $form_data['series'];
+        // $new_comic->type = $form_data['type'];
+        // $new_comic->sale_date = $form_data['sale_date'];
+        // $new_comic->price = $form_data['price'];
+        // $new_comic->description = $form_data['description'];
+        // con fill fa da solo le relazioni grazie al model Comic
+        $new_comic->fill($form_data);
 
         $new_comic->save();
 
@@ -58,9 +60,8 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comic $comic)
     {
-        $comic = Comic::find($id);
         return view('comics.show', compact('comic'));
     }
 
@@ -70,9 +71,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+
+        return view('comics.edit', compact('comic'));
     }
 
     /**
