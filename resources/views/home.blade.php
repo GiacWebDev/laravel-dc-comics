@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Home</h1>
+    <div class="d-block">
+        <h1>Home</h1>
+
+        <a href="{{ route('comics.create') }}" class="btn btn-primary">Crea un nuovo comic</a>
+    </div>
 @endsection

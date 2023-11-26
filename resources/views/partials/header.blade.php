@@ -9,6 +9,9 @@
                     <a class="nav-link" href="{{ route('comics.index') }}">Prodotti</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('comics.create') }}">Nuovo Comics</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('contacts') }}">Contatti</a>
                 </li>
             </ul>

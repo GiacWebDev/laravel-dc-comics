@@ -2,15 +2,17 @@
 
 @section('content')
     <div class="row">
-        <div class="card text-center">
-            <div class="card-header">
-                <h3>Comic</h3>
-                <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
-            </div>
+        <div class="card" style="width: 18rem;">
+            <img src="{{ $comic->thumb }}" class="card-img-top" alt="{{ $comic->title }}">
             <div class="card-body">
-                <h1>{{ $comic->title }}</h1>
-                <p class="card-text">{{ $comic->description }}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <p class="card-title">ID: {{ $comic->id }}</p>
+                <h3 class="card-title">{{ $comic->title }}</h3>
+                <h4 class="card-title">{{ $comic->series }}</h4>
+                <h4 class="card-title">{{ $comic->type }}</h4>
+                <h5 class="card-title">{{ $comic->sale_date }}</h5>
+                <h5 class="card-text">{{ $comic->price }}</h5>
+                <a href="{{ route('comics.show', $comic) }}" class="btn btn-success"><i class="fa-solid fa-pen"
+                        style="color: #ffffff;"></i></a>
             </div>
         </div>
     </div>
