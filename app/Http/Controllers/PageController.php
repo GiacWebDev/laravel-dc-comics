@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Comic;
 
 class PageController extends Controller
 {
     public function index() {
-        $num_products = Comic::count();
-        return view('home', compact('num_products'));
+        return view('home');
     }
 
     public function contacts() {
