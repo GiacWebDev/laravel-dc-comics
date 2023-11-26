@@ -11,8 +11,7 @@
                 <h4 class="card-title">{{ $comic->type }}</h4>
                 <h5 class="card-title">{{ $comic->sale_date }}</h5>
                 <h5 class="card-text">{{ $comic->price }}</h5>
-                <a href="{{ route('comics.show', $comic) }}" class="btn btn-success"><i class="fa-solid fa-eye"
-                        style="color: #ffffff;"></i></a>
+                <p>{{ $comic->description }}</p>
                 <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning"><i class="fa-solid fa-pen"
                         style="color: #ffffff;"></i></a>
             </div>
